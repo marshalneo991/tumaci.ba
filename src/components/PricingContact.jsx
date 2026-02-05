@@ -21,11 +21,36 @@ const teamInfo = [
 ];
 
 const PricingContact = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data);
-        alert('Hvala vam! Vaš zahtjev je zaprimljen.');
+    const onSubmit = async (data) => {
+        const formData = new FormData();
+        formData.append('name', data.name);
+        formData.append('email', data.email);
+        formData.append('type', data.type);
+        formData.append('message', data.message);
+
+        if (data.file && data.file[0]) {
+            formData.append('file', data.file[0]);
+        }
+
+        try {
+            const response = await fetch('/send_email.php', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                alert('Hvala vam! Vaša poruka i dokument su uspješno poslani.');
+                reset();
+            } else {
+                const errorData = await response.json();
+                alert('Greška: ' + (errorData.message || 'Došlo je do greške prilikom slanja.'));
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Došlo je do greške prilikom komunikacije sa serverom. Provjerite jeste li postavili PHP skriptu na server.');
+        }
     };
 
     return (
@@ -96,6 +121,7 @@ const PricingContact = () => {
                                         placeholder="Ime i Prezime"
                                         className="w-full p-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary transition-all text-sm"
                                     />
+                                    {errors.name && <span className="text-xs text-red-500">Ovo polje je obavezno</span>}
                                 </div>
                                 <div>
                                     <input
@@ -103,17 +129,20 @@ const PricingContact = () => {
                                         placeholder="E-mail"
                                         className="w-full p-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary transition-all text-sm"
                                     />
+                                    {errors.email && <span className="text-xs text-red-500">Unesite ispravan e-mail</span>}
                                 </div>
                                 <div>
                                     <select
-                                        {...register('type')}
+                                        {...register('type', { required: true })}
                                         className="w-full p-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary bg-white transition-all text-sm text-gray-500"
+                                        defaultValue=""
                                     >
-                                        <option value="" disabled selected>Vrsta Prevoda</option>
+                                        <option value="" disabled>Vrsta Prevoda</option>
                                         <option value="ovjereni">Ovjereni Prevod</option>
                                         <option value="neovjereni">Neovjereni Prevod</option>
                                         <option value="usmeno">Usmeno Prevođenje</option>
                                     </select>
+                                    {errors.type && <span className="text-xs text-red-500">Odaberite vrstu prevoda</span>}
                                 </div>
                                 <div>
                                     <textarea
@@ -122,13 +151,15 @@ const PricingContact = () => {
                                         placeholder="Poruka"
                                         className="w-full p-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary transition-all text-sm resize-none"
                                     />
+                                    {errors.message && <span className="text-xs text-red-500">Ovo polje je obavezno</span>}
                                 </div>
                                 <div>
                                     <label className="flex items-center gap-2 p-3 border border-gray-200 rounded-md cursor-pointer hover:bg-gray-50 transition-colors text-sm text-[#1e40af] font-medium">
                                         <FileUp size={18} />
-                                        <span>Odaberite dokument</span>
+                                        <span>Odaberite dokument (opcionalno)</span>
                                         <input type="file" className="hidden" {...register('file')} />
                                     </label>
+                                    <p className="text-[10px] text-gray-400 mt-1">* Napomena: Dokumenti se ne šalju preko EmailJS besplatnog plana direktno.</p>
                                 </div>
                                 <button
                                     type="submit"
