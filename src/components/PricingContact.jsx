@@ -57,9 +57,8 @@ const PricingContact = () => {
         <section className="py-20 bg-[#f8fbff]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row gap-16">
-                    {/* Left: Pricing details & Contact Info */}
+                    {/* Left: Contact Info */}
                     <div className="lg:w-1/2">
-                        <p className="text-[10px] text-gray-400 mt-1">* Dokumenti su podržani i biće poslani kao prilog u emailu.</p>
                         <div className="space-y-8">
                             <div>
                                 <h3 className="text-xl font-bold text-[#1e40af] mb-4 uppercase">Kontaktirajte nas</h3>
@@ -155,7 +154,7 @@ const PricingContact = () => {
                                         <span>Odaberite dokument (opcionalno)</span>
                                         <input type="file" className="hidden" {...register('file')} />
                                     </label>
-                                    <p className="text-[10px] text-gray-400 mt-1">* Napomena: Dokumenti se ne šalju preko EmailJS besplatnog plana direktno.</p>
+                                    <p className="text-[10px] text-gray-400 mt-1">* Dokumenti su podržani i biće poslani kao prilog u emailu.</p>
                                 </div>
                                 <button
                                     type="submit"
