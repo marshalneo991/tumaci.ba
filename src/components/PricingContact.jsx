@@ -59,11 +59,7 @@ const PricingContact = () => {
                 <div className="flex flex-col lg:flex-row gap-16">
                     {/* Left: Pricing details & Contact Info */}
                     <div className="lg:w-1/2">
-                        <div className="flex items-center gap-4 mb-10">
-                            <h2 className="text-3xl font-bold text-primary shrink-0 uppercase">Kontakt & Cjenik</h2>
-                            <div className="h-px bg-gray-200 w-full" />
-                        </div>
-
+                        <p className="text-[10px] text-gray-400 mt-1">* Dokumenti su podržani i biće poslani kao prilog u emailu.</p>
                         <div className="space-y-8">
                             <div>
                                 <h3 className="text-xl font-bold text-[#1e40af] mb-4 uppercase">Kontaktirajte nas</h3>
