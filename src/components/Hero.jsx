@@ -18,7 +18,7 @@ const Hero = () => {
                         </h1>
                         <div className="text-sm md:text-base text-[#4b5563] mb-8 font-medium space-y-4">
                             <p>
-                                “S dugogodišnjim iskustvom više od decenije, specijalizirani smo za prevođenje tekstova sa engleskog jezika i na engleski jezik, te sa francuskog jezika i na francuski jezik. Naša stručnost je prepoznata kroz sudjelovanje u međunarodnim projektima što je rezultiralo nizom preporuka naših klijenta iz različitih grana.
+                                “S dugogodišnjim iskustvom više od decenije, specijalizirani smo za prevođenje tekstova sa engleskog jezika i na engleski jezik, te sa francuskog jezika i na francuski jezik. Naša stručnost je prepoznata kroz sudjelovanje u međunarodnim projektima što je rezultiralo nizom preporuka naših klijenata iz različitih grana.
                             </p>
                             <p>
                                 Osiguravamo ovjerene prijevode, pružajući Vam sigurnost u kvalitetu. Bez obzira na vrstu Vaše dokumentacije, možete imati povjerenja u nas i potpunu diskreciju. Kontaktirajte nas i zatražite brzu i neobveznu ponudu.”

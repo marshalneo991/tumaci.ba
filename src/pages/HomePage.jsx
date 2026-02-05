@@ -9,9 +9,15 @@ import Clients from '../components/Clients';
 import PricingContact from '../components/PricingContact';
 import Footer from '../components/Footer';
 
+import SEO from '../components/SEO';
+
 const HomePage = () => {
     return (
         <>
+            <SEO
+                title="Početna"
+                description="Profesionalne prevodilačke usluge u Živinicama, BiH. Sudski tumači za engleski i francuski jezik. Ovjereni prijevodi, usmeno i pisano prevođenje."
+            />
             <Header />
             <main>
                 <Hero />

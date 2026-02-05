@@ -3,10 +3,15 @@ import Header from '../components/Header';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const FAQPage = () => {
     return (
         <div className="min-h-screen bg-white flex flex-col">
+            <SEO
+                title="Često Postavljena Pitanja"
+                description="Pronađite brze odgovore na najčešća pitanja o radu sudskih tumača, ovjerama prijevoda, rokovima i cijenama."
+            />
             <Header />
             <main className="flex-grow pt-32 pb-20">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
