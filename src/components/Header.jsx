@@ -66,13 +66,6 @@ const Header = () => {
                             ))}
                         </div>
                         <div className="flex flex-col items-end border-l border-blue-100 pl-8">
-                            <a
-                                href="mailto:info@tumaci.ba"
-                                className="flex items-center gap-2 text-[#1e40af] font-bold text-[13px] hover:translate-x-1 transition-transform"
-                            >
-                                <Mail size={14} fill="currentColor" />
-                                <span>info@tumaci.ba</span>
-                            </a>
                             <div className="flex items-center gap-2 text-[#1e40af] font-bold text-[13px]">
                                 <MapPin size={14} fill="currentColor" />
                                 <span>Živinice, BiH</span>
@@ -135,16 +128,7 @@ const Header = () => {
                             </nav>
 
                             <div className="p-8 bg-blue-50/50 space-y-4">
-                                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Kontakt</p>
-                                <a
-                                    href="mailto:info@tumaci.ba"
-                                    className="flex items-center gap-3 text-[#1e40af] font-bold"
-                                >
-                                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
-                                        <Mail size={18} fill="currentColor" />
-                                    </div>
-                                    <span>info@tumaci.ba</span>
-                                </a>
+                                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Lokacija</p>
                                 <div className="flex items-center gap-3 text-[#1e40af] font-bold">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
                                         <MapPin size={18} fill="currentColor" />

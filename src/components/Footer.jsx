@@ -23,7 +23,7 @@ const Footer = () => {
 
                     <div className="flex flex-col items-center md:items-end gap-1">
                         <p className="text-[10px] text-blue-200 uppercase tracking-wider">
-                            Design by <span className="text-white font-bold italic">VoidStack</span>
+                            Design by <a href="https://www.voidstack.de" target="_blank" rel="noopener noreferrer" className="text-white font-bold italic hover:text-blue-200 transition-colors">VoidStack</a>
                         </p>
                     </div>
                 </div>

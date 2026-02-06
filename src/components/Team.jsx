@@ -1,11 +1,13 @@
 import React from 'react';
 import { Mail, Phone, Facebook, Linkedin, Instagram, User } from 'lucide-react';
+import viberIcon from '../assets/viber-icon.png';
+import whatsappIcon from '../assets/whatsapp-icon.png';
 
 const members = [
     {
         name: 'Dženan Mukić',
         role: 'Sudski tumač za engleski jezik',
-        emails: ['dzenan.mukic@tumaci.ba', 'dzenan.mukic@gmail.com', 'dzenan.mukic@yahoo.com'],
+        emails: ['dzenan.mukic@gmail.com', 'dzenan.mukic@yahoo.com'],
         phone: '+387 62 348 609',
         gender: 'm',
         social: {
@@ -16,8 +18,8 @@ const members = [
     {
         name: 'Azra Bećirović',
         role: 'Sudski tumač za engleski jezik',
-        emails: ['azra.becirovic@tumaci.ba', 'azrabeci1980@gmail.com'],
-        phone: '',
+        emails: ['azrabeci1980@gmail.com', 'becirovic.azra@hotmail.com'],
+        phone: '+387 61 733 375',
         gender: 'f',
         social: {
             facebook: 'https://bs-ba.facebook.com/azra.becirovic'
@@ -26,7 +28,7 @@ const members = [
     {
         name: 'Sanela Šišić',
         role: 'Sudski tumač za francuski jezik',
-        emails: ['sanela.sisic@tumaci.ba', 'sanelaf@hotmail.com'],
+        emails: ['sanelaf@hotmail.com'],
         phone: '+387 62 940 056',
         gender: 'f',
         social: {
@@ -59,34 +61,58 @@ const Team = () => {
                             <div className="p-6">
                                 <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
                                 <p className="text-primary font-medium text-sm mb-4">{member.role}</p>
-                                <div className="space-y-2">
-                                    {member.emails.map((email) => (
-                                        <a key={email} href={`mailto:${email}`} className="flex items-center gap-2 text-xs text-gray-600 hover:text-primary transition-colors">
-                                            <Mail size={14} />
-                                            {email}
-                                        </a>
-                                    ))}
+                                <div className="space-y-4">
+                                    <div className="space-y-2">
+                                        {member.emails.map((email) => (
+                                            <a key={email} href={`mailto:${email}`} className="flex items-center gap-2 text-xs text-gray-600 hover:text-primary transition-colors">
+                                                <Mail size={14} />
+                                                {email}
+                                            </a>
+                                        ))}
+                                    </div>
+
                                     {member.phone && (
-                                        <a href={`tel:${member.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-xs text-gray-600 hover:text-primary transition-colors">
-                                            <Phone size={14} />
-                                            {member.phone}
-                                        </a>
+                                        <div className="space-y-2 pt-2 border-t border-gray-50">
+                                            <a href={`tel:${member.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-xs text-gray-600 hover:text-primary transition-colors mb-2">
+                                                <Phone size={14} />
+                                                {member.phone}
+                                            </a>
+                                            <div className="flex flex-wrap gap-4">
+                                                <a
+                                                    href={`https://wa.me/${member.phone.replace(/\+/g, '').replace(/\s/g, '')}`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-2 text-[11px] font-bold text-gray-500 hover:text-[#25D366] transition-all group/wa"
+                                                >
+                                                    <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5 group-hover/wa:scale-110 transition-transform" />
+                                                    WhatsApp
+                                                </a>
+                                                <a
+                                                    href={`viber://chat?number=%2B${member.phone.replace(/\+/g, '').replace(/\s/g, '')}`}
+                                                    className="inline-flex items-center gap-2 text-[11px] font-bold text-gray-500 hover:text-[#7360f2] transition-all group/vb"
+                                                >
+                                                    <img src={viberIcon} alt="Viber" className="w-5 h-5 group-hover/vb:scale-110 transition-transform" />
+                                                    Viber
+                                                </a>
+                                            </div>
+                                        </div>
                                     )}
+
                                     {member.social && (
-                                        <div className="flex gap-3 pt-2">
+                                        <div className="flex gap-3 pt-4 border-t border-gray-50">
                                             {member.social.facebook && (
                                                 <a href={member.social.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
-                                                    <Facebook size={16} fill="currentColor" strokeWidth={0} />
+                                                    <Facebook size={20} fill="currentColor" strokeWidth={0} />
                                                 </a>
                                             )}
                                             {member.social.linkedin && (
                                                 <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
-                                                    <Linkedin size={16} fill="currentColor" strokeWidth={0} />
+                                                    <Linkedin size={20} fill="currentColor" strokeWidth={0} />
                                                 </a>
                                             )}
                                             {member.social.instagram && (
                                                 <a href={member.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
-                                                    <Instagram size={16} strokeWidth={2} />
+                                                    <Instagram size={20} strokeWidth={2} />
                                                 </a>
                                             )}
                                         </div>

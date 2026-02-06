@@ -1,21 +1,23 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FileUp, ChevronRight, Mail, Phone } from 'lucide-react';
+import viberIcon from '../assets/viber-icon.png';
+import whatsappIcon from '../assets/whatsapp-icon.png';
 
 const teamInfo = [
     {
         name: 'Dženan Mukić',
-        emails: ['dzenan.mukic@tumaci.ba', 'dzenan.mukic@gmail.com', 'dzenan.mukic@yahoo.com'],
+        emails: ['dzenan.mukic@gmail.com', 'dzenan.mukic@yahoo.com'],
         phone: '+387 62 348 609'
     },
     {
         name: 'Azra Bećirović',
-        emails: ['azra.becirovic@tumaci.ba'],
-        phone: ''
+        emails: ['azrabeci1980@gmail.com', 'becirovic.azra@hotmail.com'],
+        phone: '+387 61 733 375'
     },
     {
         name: 'Sanela Šišić',
-        emails: ['sanela.sisic@tumaci.ba', 'sanelaf@hotmail.com'],
+        emails: ['sanelaf@hotmail.com'],
         phone: '+387 62 940 056'
     }
 ];
@@ -70,18 +72,41 @@ const PricingContact = () => {
                                     {teamInfo.map((member, idx) => (
                                         <div key={idx} className="border-l-4 border-primary pl-4 py-1">
                                             <p className="font-bold text-[#1e40af] mb-2">{member.name}:</p>
-                                            <div className="space-y-1">
-                                                {member.emails.map((email, eIdx) => (
-                                                    <a key={eIdx} href={`mailto:${email}`} className="flex items-center gap-2 text-sm text-gray-600 hover:text-primary transition-colors">
-                                                        <Mail size={14} className="shrink-0" />
-                                                        {email}
-                                                    </a>
-                                                ))}
+                                            <div className="space-y-3">
+                                                <div className="space-y-1">
+                                                    {member.emails.map((email, eIdx) => (
+                                                        <a key={eIdx} href={`mailto:${email}`} className="flex items-center gap-2 text-sm text-gray-600 hover:text-primary transition-colors">
+                                                            <Mail size={14} className="shrink-0" />
+                                                            {email}
+                                                        </a>
+                                                    ))}
+                                                </div>
+
                                                 {member.phone && (
-                                                    <a href={`tel:${member.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm text-gray-600 hover:text-primary transition-colors">
-                                                        <Phone size={14} className="shrink-0" />
-                                                        {member.phone}
-                                                    </a>
+                                                    <div className="space-y-2">
+                                                        <a href={`tel:${member.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 text-sm text-gray-600 hover:text-primary transition-colors font-medium">
+                                                            <Phone size={14} className="shrink-0" />
+                                                            {member.phone}
+                                                        </a>
+                                                        <div className="flex gap-4">
+                                                            <a
+                                                                href={`https://wa.me/${member.phone.replace(/\+/g, '').replace(/\s/g, '')}`}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="inline-flex items-center gap-2 text-[11px] font-bold text-gray-500 hover:text-[#25D366] transition-all group/wa"
+                                                            >
+                                                                <img src={whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
+                                                                WhatsApp
+                                                            </a>
+                                                            <a
+                                                                href={`viber://chat?number=%2B${member.phone.replace(/\+/g, '').replace(/\s/g, '')}`}
+                                                                className="inline-flex items-center gap-2 text-[11px] font-bold text-gray-500 hover:text-[#7360f2] transition-all group/vb"
+                                                            >
+                                                                <img src={viberIcon} alt="Viber" className="w-4 h-4" />
+                                                                Viber
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 )}
                                             </div>
                                         </div>

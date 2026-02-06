@@ -68,7 +68,7 @@ const PrivacyPolicyPage = () => {
                         <section>
                             <h2 className="text-2xl font-bold text-[#1e40af] mb-4 uppercase tracking-wide">6. Kontakt</h2>
                             <p className="leading-relaxed">
-                                Za sva pitanja vezana za vašu privatnost, možete nas kontaktirati putem e-maila: <a href="mailto:info@tumaci.ba" className="text-[#1e40af] font-bold hover:underline">info@tumaci.ba</a>.
+                                Za sva pitanja vezana za vašu privatnost, možete nas kontaktirati putem kontakt forme na početnoj stranici.
                             </p>
                         </section>
                     </div>
