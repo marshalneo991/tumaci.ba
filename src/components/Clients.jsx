@@ -1,13 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import TamexLogo from '../assets/Tamex.png';
+import TuristickaZajednicaTK from '../assets/TuristickaZajednicaTK.png';
+import TQMLogo from '../assets/tqm.png';
+import OpcinskiSudLogo from '../assets/OpcinskiSud.png';
+import FehrijaHusicSuljkanovicLogo from '../assets/FehrijaHusicSuljkanovic.png';
+import TalentConnectHubLogo from '../assets/talentconnecthubg.png';
+import EntakorSolutionsLogo from '../assets/entakor.logo.svg';
+import TuzlaInternationalAirportLogo from '../assets/airport-logo.png';
+import AdvokatAdnanMalkicLogo from '../assets/advokatlogo.png';
+import AdvokatZurijetaSalkanovicLogo from '../assets/advokatlogo.png';
+
+
+
 const clients = [
-    { name: 'LegalCorp BiH', logo: '🏛️' },
-    { name: 'Sarajevo Insurance', logo: '🛡️' },
-    { name: 'EuroTrans d.o.o.', logo: '🚛' },
-    { name: 'Global Tech Solution', logo: '💻' },
-    { name: 'Banka Federacije', logo: '🏦' },
-    { name: 'International Law Firm', logo: '⚖️' },
+    { name: 'Tamex d.o.o', logo: TamexLogo, isImage: true },
+    { name: 'Turistička Zajednica TK', logo: TuristickaZajednicaTK, isImage: true },
+    { name: 'TQM', logo: TQMLogo, isImage: true },
+    { name: 'Općinski sud u Živinicama', logo: OpcinskiSudLogo, isImage: true },
+    { name: 'Fehrija Husić Suljkanović', logo: FehrijaHusicSuljkanovicLogo, isImage: true },
+    { name: 'Talent Connect hub', logo: TalentConnectHubLogo, isImage: true },
+    { name: 'Paprika Group d.o.o', logo: '' },
+    { name: 'Entakor Solutions', logo: EntakorSolutionsLogo, isImage: true },
+    { name: 'Tuzla International Airport', logo: TuzlaInternationalAirportLogo, isImage: true },
+    { name: 'Advokat Adnan Malkić', logo: AdvokatAdnanMalkicLogo, isImage: true },
+    { name: 'Advokat Zurijeta Salkanović', logo: AdvokatZurijetaSalkanovicLogo, isImage: true },
 ];
 
 const Clients = () => {
@@ -27,13 +45,13 @@ const Clients = () => {
                     <motion.div
                         className="flex gap-8 py-4"
                         animate={{
-                            x: [0, -1920], // Adjusted based on approximate width
+                            x: [0, -3168], // Adjusted based on approximate width (11 clients * 288px)
                         }}
                         transition={{
                             x: {
                                 repeat: Infinity,
                                 repeatType: "loop",
-                                duration: 40,
+                                duration: 66, // Slower duration for more items
                                 ease: "linear",
                             },
                         }}
@@ -41,10 +59,16 @@ const Clients = () => {
                         {duplicatedClients.map((client, index) => (
                             <div
                                 key={index}
-                                className="flex-shrink-0 w-64 h-32 bg-[#f8fbff] rounded-xl border border-blue-50 flex flex-col items-center justify-center gap-2 p-6 transition-all hover:shadow-md hover:border-primary/20 cursor-default grayscale hover:grayscale-0"
+                                className="flex-shrink-0 w-64 h-32 bg-primary-dark rounded-xl border border-white/10 flex flex-col items-center justify-center gap-2 p-6 shadow-md cursor-default"
                             >
-                                <div className="text-4xl grayscale-0">{client.logo}</div>
-                                <span className="text-[#1e40af] font-bold text-sm text-center">{client.name}</span>
+                                {client.isImage ? (
+                                    <div className="h-16 flex items-center justify-center grayscale-0">
+                                        <img src={client.logo} alt={client.name} className="max-h-full max-w-full object-contain" />
+                                    </div>
+                                ) : (
+                                    <div className="text-4xl grayscale-0">{client.logo}</div>
+                                )}
+                                <span className="text-white font-bold text-sm text-center">{client.name}</span>
                             </div>
                         ))}
                     </motion.div>
