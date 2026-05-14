@@ -19,6 +19,11 @@ const teamInfo = [
         name: 'Sanela Šišić',
         emails: ['sanelaf@hotmail.com'],
         phone: '+387 62 940 056'
+    },
+    {
+        name: 'Enes Softić',
+        emails: ['enes.softic@hotmail.com'],
+        phone: '+387 61 43 00 27'
     }
 ];
 
