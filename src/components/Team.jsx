@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, Facebook, Linkedin, Instagram, User } from 'lucide-react';
+import { Mail, Phone, Facebook, Linkedin, Instagram, User, MapPin } from 'lucide-react';
 import viberIcon from '../assets/viber-icon.png';
 import whatsappIcon from '../assets/whatsapp-icon.png';
 
@@ -34,6 +34,14 @@ const members = [
         social: {
             instagram: 'https://www.instagram.com/tumacfrancuski/'
         },
+    },
+    {
+        name: 'Enes Softić',
+        role: 'Sudski tumač',
+        emails: ['enes.softic@hotmail.com'],
+        phone: '+387 61 43 00 27',
+        gender: 'm',
+        address: 'Safet-bega Bašagića 6. Slatina, Tuzla',
     },
 ];
 
@@ -70,6 +78,15 @@ const Team = () => {
                                             </a>
                                         ))}
                                     </div>
+
+                                    {member.address && (
+                                        <div className="space-y-2 pt-2 border-t border-gray-50">
+                                            <div className="flex items-start gap-2 text-xs text-gray-600">
+                                                <MapPin size={14} className="shrink-0 mt-0.5" />
+                                                <span>{member.address}</span>
+                                            </div>
+                                        </div>
+                                    )}
 
                                     {member.phone && (
                                         <div className="space-y-2 pt-2 border-t border-gray-50">

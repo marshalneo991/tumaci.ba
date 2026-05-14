@@ -11,7 +11,7 @@ const steps = [
     },
     {
         title: 'Preuzmite Prevode',
-        text: 'Isporuka na e-mail ili lično',
+        text: 'Isporuka na e-mail, lično i poštom',
     },
 ];
 
