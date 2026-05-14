@@ -1,6 +1,5 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import { FileUp, ChevronRight, Mail, Phone } from 'lucide-react';
+import { ChevronRight, Mail, Phone } from 'lucide-react';
 import viberIcon from '../assets/viber-icon.png';
 import whatsappIcon from '../assets/whatsapp-icon.png';
 
@@ -28,44 +27,12 @@ const teamInfo = [
 ];
 
 const PricingContact = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
-
-    const onSubmit = async (data) => {
-        const formData = new FormData();
-        formData.append('name', data.name);
-        formData.append('email', data.email);
-        formData.append('type', data.type);
-        formData.append('message', data.message);
-
-        if (data.file && data.file[0]) {
-            formData.append('file', data.file[0]);
-        }
-
-        try {
-            const response = await fetch('/send_email.php', {
-                method: 'POST',
-                body: formData,
-            });
-
-            if (response.ok) {
-                alert('Hvala vam! Vaša poruka i dokument su uspješno poslani.');
-                reset();
-            } else {
-                const errorData = await response.json();
-                alert('Greška: ' + (errorData.message || 'Došlo je do greške prilikom slanja.'));
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Došlo je do greške prilikom komunikacije sa serverom. Provjerite jeste li postavili PHP skriptu na server.');
-        }
-    };
-
     return (
-        <section className="py-20 bg-[#f8fbff]">
+        <section id="kontakt" className="py-20 bg-[#f8fbff]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col lg:flex-row gap-16">
+                <div className="flex flex-col gap-16 items-center">
                     {/* Left: Contact Info */}
-                    <div className="lg:w-1/2">
+                    <div className="w-full max-w-2xl">
                         <div className="space-y-8">
                             <div>
                                 <h3 className="text-xl font-bold text-[#1e40af] mb-4 uppercase">Kontaktirajte nas</h3>
@@ -121,7 +88,7 @@ const PricingContact = () => {
 
 
                             {/* FAQ Section Reference */}
-                            <div className="mt-16 text-center lg:text-left">
+                            <div className="mt-16 text-center">
                                 <h3 className="text-2xl font-bold text-[#1e40af] mb-4 uppercase">Često Postavljena Pitanja</h3>
                                 <p className="text-gray-600 mb-6">Pronađite brze odgovore na najčešća pitanja o sudskim tumačima i prevodima.</p>
                                 <a
@@ -132,68 +99,6 @@ const PricingContact = () => {
                                     <ChevronRight size={18} />
                                 </a>
                             </div>
-                        </div>
-                    </div>
-
-                    {/* Right: Contact Form */}
-                    <div id="kontakt" className="lg:w-1/2">
-                        <div className="bg-white p-8 md:p-10 rounded-xl shadow-lg border border-blue-50 sticky top-24">
-                            <h3 className="text-2xl font-bold text-[#1e40af] mb-8 text-center uppercase">Kontaktirajte Nas</h3>
-                            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                                <div>
-                                    <input
-                                        {...register('name', { required: true })}
-                                        placeholder="Ime i Prezime"
-                                        className="w-full p-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary transition-all text-sm"
-                                    />
-                                    {errors.name && <span className="text-xs text-red-500">Ovo polje je obavezno</span>}
-                                </div>
-                                <div>
-                                    <input
-                                        {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-                                        placeholder="E-mail"
-                                        className="w-full p-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary transition-all text-sm"
-                                    />
-                                    {errors.email && <span className="text-xs text-red-500">Unesite ispravan e-mail</span>}
-                                </div>
-                                <div>
-                                    <select
-                                        {...register('type', { required: true })}
-                                        className="w-full p-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary bg-white transition-all text-sm text-gray-500"
-                                        defaultValue=""
-                                    >
-                                        <option value="" disabled>Vrsta Prevoda</option>
-                                        <option value="ovjereni">Ovjereni Prevod</option>
-                                        <option value="neovjereni">Neovjereni Prevod</option>
-                                        <option value="usmeno">Usmeno Prevođenje</option>
-                                    </select>
-                                    {errors.type && <span className="text-xs text-red-500">Odaberite vrstu prevoda</span>}
-                                </div>
-                                <div>
-                                    <textarea
-                                        {...register('message', { required: true })}
-                                        rows="4"
-                                        placeholder="Poruka"
-                                        className="w-full p-3 rounded-md border border-gray-200 focus:outline-none focus:border-primary transition-all text-sm resize-none"
-                                    />
-                                    {errors.message && <span className="text-xs text-red-500">Ovo polje je obavezno</span>}
-                                </div>
-                                <div>
-                                    <label className="flex items-center gap-2 p-3 border border-gray-200 rounded-md cursor-pointer hover:bg-gray-50 transition-colors text-sm text-[#1e40af] font-medium">
-                                        <FileUp size={18} />
-                                        <span>Odaberite dokument (opcionalno)</span>
-                                        <input type="file" className="hidden" {...register('file')} />
-                                    </label>
-                                    <p className="text-[10px] text-gray-400 mt-1">* Dokumenti su podržani i biće poslani kao prilog u emailu.</p>
-                                </div>
-                                <button
-                                    type="submit"
-                                    className="w-full bg-[#40a044] text-white py-3 rounded-md font-bold flex items-center justify-center gap-2 hover:bg-[#368a3a] transition-all shadow-md group"
-                                >
-                                    Pošaljite
-                                    <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </div>
