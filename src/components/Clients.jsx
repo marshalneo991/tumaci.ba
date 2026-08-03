@@ -11,6 +11,7 @@ import EntakorSolutionsLogo from '../assets/entakor.logo.svg';
 import TuzlaInternationalAirportLogo from '../assets/airport-logo.png';
 import AdvokatAdnanMalkicLogo from '../assets/advokatlogo.png';
 import AdvokatZurijetaSalkanovicLogo from '../assets/advokatlogo.png';
+import GradLukavacLogo from '../assets/grad_lukavac.png';
 
 
 
@@ -26,6 +27,7 @@ const clients = [
     { name: 'Tuzla International Airport', logo: TuzlaInternationalAirportLogo, isImage: true },
     { name: 'Advokat Adnan Malkić', logo: AdvokatAdnanMalkicLogo, isImage: true },
     { name: 'Advokat Zurijeta Salkanović', logo: AdvokatZurijetaSalkanovicLogo, isImage: true },
+    { name: 'Grad Lukavac', logo: GradLukavacLogo, isImage: true }
 ];
 
 const Clients = () => {

@@ -10,9 +10,9 @@ const teamInfo = [
         phone: '+387 62 348 609'
     },
     {
-        name: 'Azra Bećirović',
-        emails: ['azrabeci1980@gmail.com', 'becirovic.azra@hotmail.com'],
-        phone: '+387 61 733 375'
+        name: 'Anel Kovačević',
+        emails: ['kovacevic.anel@gmail.com'],
+        phone: '+387 61 888 529'
     },
     {
         name: 'Sanela Šišić',
@@ -21,7 +21,7 @@ const teamInfo = [
     },
     {
         name: 'Enes Softić',
-        emails: ['enes.softic@hotmail.com'],
+        emails: ['enes.softic@hotmail.com', 'info@ovjereniprevod.ba'],
         phone: '+387 61 43 00 27'
     }
 ];

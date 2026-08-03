@@ -16,10 +16,10 @@ const members = [
         },
     },
     {
-        name: 'Azra Bećirović',
+        name: 'Anel Kovačević',
         role: 'Sudski tumač za engleski jezik',
-        emails: ['azrabeci1980@gmail.com', 'becirovic.azra@hotmail.com'],
-        phone: '+387 61 733 375',
+        emails: ['kovacevic.anel@gmail.com'],
+        phone: '+387 61 888 529',
         gender: 'f',
         social: {
             facebook: 'https://bs-ba.facebook.com/azra.becirovic'
@@ -38,10 +38,10 @@ const members = [
     {
         name: 'Enes Softić',
         role: 'Sudski tumač',
-        emails: ['enes.softic@hotmail.com'],
+        emails: ['enes.softic@hotmail.com', 'info@ovjereniprevod.ba'],
         phone: '+387 61 43 00 27',
         gender: 'm',
-        address: 'Safet-bega Bašagića 6. Slatina, Tuzla',
+        address: 'Safvet-bega Bašagića 6. Slatina, Tuzla',
     },
 ];
 
