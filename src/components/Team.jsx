@@ -25,7 +25,7 @@ const members = [
         gender: 'f',
         image: AnelImage,
         social: {
-            facebook: 'https://bs-ba.facebook.com/azra.becirovic'
+        
         },
     },
     {
