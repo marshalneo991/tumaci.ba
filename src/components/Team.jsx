@@ -76,7 +76,7 @@ const Team = () => {
                                         className="text-slate-200 group-hover:scale-110 transition-transform duration-500"
                                     />
                                 )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-100/50 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-100/0 to-transparent" />
                             </div>
                             <div className="p-6">
                                 <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
