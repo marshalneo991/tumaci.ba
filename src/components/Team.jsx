@@ -2,6 +2,8 @@ import React from 'react';
 import { Mail, Phone, Facebook, Linkedin, Instagram, User, MapPin } from 'lucide-react';
 import viberIcon from '../assets/viber-icon.png';
 import whatsappIcon from '../assets/whatsapp-icon.png';
+import AnelImage from '../assets/Anel.jpg';
+import EnesImage from '../assets/Enes.jpg';
 
 const members = [
     {
@@ -17,10 +19,11 @@ const members = [
     },
     {
         name: 'Anel Kovačević',
-        role: 'Sudski tumač za engleski jezik',
+        role: 'Sudski tumač',
         emails: ['kovacevic.anel@gmail.com'],
         phone: '+387 61 888 529',
         gender: 'f',
+        image: AnelImage,
         social: {
             facebook: 'https://bs-ba.facebook.com/azra.becirovic'
         },
@@ -41,6 +44,7 @@ const members = [
         emails: ['enes.softic@hotmail.com', 'info@ovjereniprevod.ba'],
         phone: '+387 61 43 00 27',
         gender: 'm',
+        image: EnesImage,
         address: 'Safvet-bega Bašagića 6. Slatina, Tuzla',
     },
 ];
@@ -59,11 +63,19 @@ const Team = () => {
                     {members.map((member, index) => (
                         <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col group">
                             <div className="h-64 bg-slate-50 flex items-center justify-center relative overflow-hidden">
-                                <User
-                                    size={120}
-                                    strokeWidth={1}
-                                    className="text-slate-200 group-hover:scale-110 transition-transform duration-500"
-                                />
+                                {member.image ? (
+                                    <img
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="h-full w-full object-cover"
+                                    />
+                                ) : (
+                                    <User
+                                        size={120}
+                                        strokeWidth={1}
+                                        className="text-slate-200 group-hover:scale-110 transition-transform duration-500"
+                                    />
+                                )}
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-100/50 to-transparent" />
                             </div>
                             <div className="p-6">

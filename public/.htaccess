@@ -1,9 +1,16 @@
 <IfModule mod_rewrite.c>
+  Options -Multiviews
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
+
+  # Serve existing assets and files directly
+  RewriteRule ^assets/ - [L]
+  RewriteRule ^(index\.html|robots\.txt|sitemap\.xml|vite\.svg)$ - [L]
+
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Fallback to SPA index.html
+  RewriteRule ^ index.html [L,QSA]
 </IfModule>
